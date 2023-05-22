@@ -1,7 +1,8 @@
+import os
+import sys
 import unittest
 from datetime import datetime
 from unittest.mock import patch
-
 from models.base_model import BaseModel
 
 
@@ -37,4 +38,13 @@ class TestBaseModel(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    # Get the directory of the current script
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    # Specify the relative path to the models package
+    models_path = os.path.join(script_dir, 'models')
+
+    # Add the models path to the system path
+    sys.path.append(models_path)
+    
     unittest.main()
