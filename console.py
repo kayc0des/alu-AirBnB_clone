@@ -1,14 +1,15 @@
 import cmd
 import sys
 
+
 class MyCmd(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, line):
-         """
-         Exits the command loop
-         """
-         return True
+        """
+        Exits the command loop
+        """
+        return True
     
     def do_EOF(self, arg):
         """Handle the end of input.
