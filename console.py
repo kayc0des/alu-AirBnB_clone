@@ -11,19 +11,14 @@ class MyCmd(cmd.Cmd):
          return True
     
     def do_EOF(self, arg):
-        """Handle the end of input.
-
-        This function is called when the user enters the end-of-file command.
-        It will exit the command-line interpreter.
         """
-        print("Exiting...")
+        handle EOF
+        """
         return True
     
     def emptyline(self):
-        """Handle an empty line.
-
-        This function is called when the user enters an empty line.
-        It does nothing in this implementation.
+        """
+        Handle user empty line
         """
         pass
 
