@@ -2,11 +2,11 @@
 import uuid
 from datetime import datetime
 
+
 class BaseModel:
     """
-    With this BaseModel class, other classes can inherit from it and benefit from the 
-    common attributes and methods defined. For example, let's say we have a User class 
-    that extends BaseModel
+    With the BaseModel class other 
+    classes can inherit from it.
     """
     def __init__(self):
         self.id = str(uuid.uuid4())
