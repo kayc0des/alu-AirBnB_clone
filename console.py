@@ -10,13 +10,13 @@ class MyCmd(cmd.Cmd):
         Exits the command loop
         """
         return True
-    
+
     def do_EOF(self, arg):
         """
         handle EOF
         """
         return True
-    
+
     def emptyline(self):
         """
         Handle user empty line
