@@ -2,11 +2,11 @@
 import uuid
 from datetime import datetime
 
+
 class BaseModel:
     """
-    With this BaseModel class, other classes can inherit from it and benefit from the 
-    common attributes and methods defined. For example, let's say we have a User class 
-    that extends BaseModel
+    With the BaseModel class other 
+    classes can inherit from it.
     """
     def __init__(self):
         self.id = str(uuid.uuid4())
@@ -25,3 +25,8 @@ class BaseModel:
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
         return obj_dict
+
+my_model = BaseModel()
+print(my_model.created_at)
+print(my_model.updated_at)
+print(my_model.created_at != my_model.updated_at)
