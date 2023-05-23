@@ -14,35 +14,39 @@ from models.base_model import BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
+    def test_initialization(self):
+        model = BaseModel()
+        self.assertIsInstance(model.id, str)
+        self.assertIsInstance(model.created_at, datetime)
+        self.assertIsInstance(model.updated_at, datetime)
 
-    def setUp(self):
-        self.model = BaseModel()
+    def test_save(self):
+        model = BaseModel()
+        initial_updated_at = model.updated_at
+        model.save()
+        self.assertNotEqual(initial_updated_at, model.updated_at)
 
-    def test_id_is_string(self):
-        self.assertIsInstance(self.model.id, str)
+    def test_to_dict(self):
+        model = BaseModel()
+        model.name = "Test Model"
+        model.my_number = 42
+        model_dict = model.to_dict()
 
-    def test_created_at_is_datetime(self):
-        self.assertIsInstance(self.model.created_at, datetime)
+        self.assertIsInstance(model_dict, dict)
+        self.assertEqual(model_dict['__class__'], 'BaseModel')
+        self.assertEqual(model_dict['name'], 'Test Model')
+        self.assertEqual(model_dict['my_number'], 42)
+        self.assertIsInstance(model_dict['created_at'], str)
+        self.assertIsInstance(model_dict['updated_at'], str)
 
-    def test_updated_at_is_datetime(self):
-        self.assertIsInstance(self.model.updated_at, datetime)
+    def test_str_representation(self):
+        model = BaseModel()
+        model.name = "Test Model"
+        model.my_number = 42
+        model_str = str(model)
 
-    def test_save_updates_updated_at(self):
-        initial_updated_at = self.model.updated_at
-        self.model.save()
-        self.assertNotEqual(initial_updated_at, self.model.updated_at)
-"""
-    @patch('base_model.datetime')
-    def test_to_dict_returns_correct_dictionary(self, mock_datetime):
-        mock_datetime.now.return_value = datetime(2023, 5, 1, 10, 30)
-        expected_dict = {
-            '__class__': 'BaseModel',
-            'id': self.model.id,
-            'created_at': self.model.created_at.isoformat(),
-            'updated_at': self.model.updated_at.isoformat()
-        }
-        self.assertDictEqual(self.model.to_dict(), expected_dict)
-        """
+        self.assertEqual(model_str, "[BaseModel] ({}) {'name': 'Test Model', 'my_number': 42, 'created_at': {}, 'updated_at': {}}".format(
+            model.id, model.created_at, model.updated_at))
 
 
 if __name__ == '__main__':
