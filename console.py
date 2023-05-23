@@ -5,26 +5,31 @@ import sys
 class MyCmd(cmd.Cmd):
     prompt = "(hbnb) "
 
+<<<<<<< HEAD
     def do_quit(self, line):
+=======
+    def do_quit(self, arg):
+>>>>>>> main
         """
         Exits the command loop
         """
         return True
+<<<<<<< HEAD
     
     def do_EOF(self, arg):
         """Handle the end of input.
+=======
+>>>>>>> main
 
-        This function is called when the user enters the end-of-file command.
-        It will exit the command-line interpreter.
+    def do_EOF(self, arg):
         """
-        print("Exiting...")
+        handle EOF
+        """
         return True
-    
-    def emptyline(self):
-        """Handle an empty line.
 
-        This function is called when the user enters an empty line.
-        It does nothing in this implementation.
+    def emptyline(self):
+        """
+        Handle user empty line
         """
         pass
 
