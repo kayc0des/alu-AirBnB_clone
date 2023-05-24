@@ -15,7 +15,6 @@ authors = [
         'role': 'SE Student'
     },
 ]
-
 #function to generate the Markdown file content based on the authors' information
 def generate_authors_file(authors):
     content = '# Authors\n\n'
