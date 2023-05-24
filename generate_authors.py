@@ -27,7 +27,7 @@ def generate_authors_file(authors):
     return content
 
 #Call the generate_authors_file() function with the authors list and write the output to a file
-output_file = 'AUTHORS.md' 
+output_file = 'AUTHORS' 
 
 with open(output_file, 'w') as file:
     file.write(generate_authors_file(authors))
