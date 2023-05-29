@@ -6,6 +6,6 @@ header {
 }
 
 header .logo {
+    position: relative;
     margin-left: 20px;
-    transform: translate(0%, 50%);
 }
