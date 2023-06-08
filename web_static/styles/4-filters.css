@@ -1,10 +1,14 @@
-.filter {
+.filters {
     color: white;
     height: 70px;
     width: 100%;
-    border: 1px #DDDDDD 4px;
+    border: 1px solid gray;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
-.button {
+button {
     font-size: 18px;
     background-color: #FF5A5F;
     color: #FFFFFF;
@@ -12,21 +16,11 @@
     width: 20%;
     border: none;
     border-radius: 4px;
-    margin-top: 30px;
+    position: absolute;
+    right: 30px;
 }
 
 /* Button hover styles */
-.button-search:hover {
+button:hover {
     opacity: 0.9;
-  }
-  
-  /* Button position styles */
-  .button-search-container {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .button-search-container .button-search {
-    align-self: center;
-    margin-right: 30px;
   }
